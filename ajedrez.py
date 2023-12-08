@@ -1,19 +1,20 @@
 #AJEDREZ
  #función del tablero
 tablero_inicial = [
-                ["♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"],
-                ["♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟"],
-                ["_", "_", "_", "_", "_", "_", "_", "_"],
-                ["_", "_", "_", "_", "_", "_", "_", "_"],
-                ["_", "_", "_", "_", "_", "_", "_", "_"],
-                ["_", "_", "_", "_", "_", "_", "_", "_"],
-                ["♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙"],
-                ["♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"],
-                
+                ["_","A","B","C","D","E","F","G","H","_"],
+                ["1","♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜","1"],
+                ["2","♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟","2"],
+                ["3","_", "_", "_", "_", "_", "_", "_", "_","3"],
+                ["4","_", "_", "_", "_", "_", "_", "_", "_","4"],
+                ["5","_", "_", "_", "_", "_", "_", "_", "_","5"],
+                ["6","_", "_", "_", "_", "_", "_", "_", "_","6"],
+                ["7","♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙","7"],
+                ["8","♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖","8"],
+                ["_","A","B","C","D","E","F","G","H","_"]
                 ]
 
 #función de movimiento
-def movimiento():
+def movimiento(tablero):
         
         tablero=tablero_inicial
         
@@ -43,21 +44,22 @@ def movimiento():
 #función de juego       
 def empezar():
 
-        eleccion=input("Hola!¿Quieres jugar ajedrez? (sí/no): ").lower
+        eleccion=input("Hola!¿Quieres jugar ajedrez? (sí/no): ")
 
         #bucle de juego
         if eleccion=='sí':
                 print("En cuanto quieras acabar la partida escribe terminar.")
                 tablero_actual=tablero_inicial.copy()
                 print('Tablero Inicial: ')
+                
                 for fila in tablero_inicial:
                         print("\t".join(fila))
                 while True:
                         print('¿Qué movimiento quieres hacer?(Utiliza coordenadas)')
-                        tablero_actual=movimiento(tablero_actual)
+                        movimiento(tablero_actual)
                         for fila in tablero_actual:
                                 print("\t".join(fila))
-                        terminar=input('¿Quieres terminar la partida?(sí/no)')
+                        terminar=input('¿Quieres terminar la partida?(sí/no): ')
                         if terminar=='sí':
                                 print('¡Gracias por jugar!')
                                 break
